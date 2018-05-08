@@ -27,7 +27,7 @@ export default (props) => {
                 {task.text}
                 <button type="button"
                         style={archiveBtnStyle}
-                        onClick={() => props.onTaskArchived(task)}>Archive</button>
+                        onClick={() => props.onArchiveTask(task)}>Archive</button>
             </div>
             <hr/>
         </li>;

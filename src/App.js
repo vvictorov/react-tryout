@@ -49,18 +49,8 @@ class App extends Component {
         return (
             <div className="App">
                 <Switch>
-                    <Route exact path='/' render={props => (
-                        <Home {...props}
-                              activeTasks={this.state.activeTasks}
-                              onTaskCreate={this.onTaskCreate.bind(this)}
-                              onTaskArchived={this.onTaskArchived.bind(this)}
-                        />
-                    )}/>
-                    <Route path='/archive' render={props => (
-                        <Archive {...props}
-                                 archivedTasks={this.state.archivedTasks}
-                        />
-                    )}/>
+                    <Route exact path='/' component={Home}/>
+                    <Route path='/archive' component={Archive}/>
                 </Switch>
 
                 <div style={this.navStyles}>

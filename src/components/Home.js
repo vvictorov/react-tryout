@@ -1,20 +1,15 @@
 import React from 'react';
-import NewTask from "./NewTask";
-import ToDoList from './ToDoList';
+import NewTask from "../containers/new-task";
+import ToDoList from '../containers/todo-list';
 
 export default (props) => {
     return (
         <div className="container">
-            <NewTask
-                onTaskCreate={task => props.onTaskCreate(task)}
-                activeTasks={props.activeTasks}
-            />
+            <NewTask/>
             <br/>
             <br/>
             <h3>Active Tasks</h3>
-            <ToDoList
-                activeTasks={props.activeTasks}
-                onTaskArchived={task => props.onTaskArchived(task)}/>
+            <ToDoList/>
         </div>
     );
 }

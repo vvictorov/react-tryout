@@ -25,7 +25,9 @@ export default (props) => {
         return <li key={task.id}>
             <div style={taskTextContainerStyle}>
                 {task.text}
-                <button type="button" style={deleteBtnStyle}>Delete</button>
+                <button type="button"
+                        style={deleteBtnStyle}
+                        onClick={() => props.onDeleteTask(task)}>Delete</button>
             </div>
             <hr/>
         </li>;
