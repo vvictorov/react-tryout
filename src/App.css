@@ -2,3 +2,32 @@
   width: 66%;
   margin: 0 auto;
 }
+
+#main-navigation{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100vh;
+    background-color: #eee;
+    max-width: 300px;
+}
+
+#main-navigation.open{
+    transform: translateX(0);
+    -webkit-transition: transform 0.2s; /* Safari */
+    transition: transform 0.2s;
+}
+
+#main-navigation.closed{
+    transform: translateX(-100%);
+    -webkit-transition: transform 0.2s; /* Safari */
+    transition: transform 0.2s;
+}
+
+.btn-close{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+}

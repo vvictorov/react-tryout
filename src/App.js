@@ -4,6 +4,7 @@ import {Route, Switch} from "react-router-dom";
 import Home from "./components/Home";
 import Archive from "./components/Archive";
 import Navigation from "./components/Navigation";
+import ActionBar from "./components/ActionBar";
 
 class App extends Component {
 
@@ -18,7 +19,8 @@ class App extends Component {
 
         this.state = {
             activeTasks: [],
-            archivedTasks: []
+            archivedTasks: [],
+            navOpen: false
         };
     }
 
@@ -44,17 +46,33 @@ class App extends Component {
         });
     }
 
+    onNavigationOpened() {
+        this.setState({
+           navOpen: true
+        });
+    }
+
+    onNavigationClosed() {
+        this.setState({
+            navOpen: false
+        });
+    }
+
     render() {
 
         return (
             <div className="App">
+                <ActionBar openNavigation={this.onNavigationOpened.bind(this)} />
                 <Switch>
                     <Route exact path='/' component={Home}/>
                     <Route path='/archive' component={Archive}/>
                 </Switch>
 
                 <div style={this.navStyles}>
-                    <Navigation style={this.navStyles} title="TODO QuickStart"/>
+                    <Navigation style={this.navStyles}
+                                isOpen={this.state.navOpen}
+                                title="TODO QuickStart"
+                                closeNavigation={this.onNavigationClosed.bind(this)}/>
                 </div>
             </div>
         );
